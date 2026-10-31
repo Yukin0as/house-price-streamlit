@@ -8,10 +8,7 @@ from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error,r2_score
 from sklearn.model_selection import train_test_split
 
-import matplotlib
-matplotlib.use('Agg')
-plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC']
-plt.rcParams['axes.unicode_minus'] = False
+
 
 st.set_page_config(
     page_title="房地产数据分析驾驶舱",
@@ -20,7 +17,10 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-
+import matplotlib
+matplotlib.use('Agg')
+plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC']
+plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_data(ttl=3600)
 def generate_house_data(n=2000):
