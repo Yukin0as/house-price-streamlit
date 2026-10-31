@@ -1,12 +1,19 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
 import plotly.express as px
 import plotly.graph_objects as go
 from sklearn.linear_model import LinearRegression
 from sklearn.metrics import mean_absolute_error,r2_score
 from sklearn.model_selection import train_test_split
+import matplotlib.pyplot as plt
+from matplotlib import font_manager as fm
+
+font_path = "./SourceHanSansSC-Regular.otf"
+fm.fontManager.addfont(font_path)
+font_name = fm.FontProperties(fname=font_path).get_name()
+plt.rcParams['font.sans-serif'] = [font_name]
+plt.rcParams['axes.unicode_minus'] = False
 
 
 
@@ -17,9 +24,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-import matplotlib
-matplotlib.use('Agg')
-plt.rcParams['font.sans-serif'] = ['Noto Sans CJK SC']
+plt.rcParams['font.sans-serif'] = [font_name]
 plt.rcParams['axes.unicode_minus'] = False
 
 @st.cache_data(ttl=3600)
